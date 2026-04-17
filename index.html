@@ -273,17 +273,121 @@ em { color: var(--color-accent); font-style: inherit; }
 .phase-title { font-size: 18px; font-weight: 600; color: var(--color-text-primary); margin-bottom: var(--space-2); line-height: var(--leading-heading); text-wrap: balance; }
 .phase-content p { font-size: var(--text-body-md); }
 
-.pf-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); align-items: stretch; }
-.pf-item { display: flex; flex-direction: column; height: 100%; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-3); background: linear-gradient(180deg, var(--color-bg-surface), var(--color-bg-elevated)); transition: transform .25s, border-color .25s, background .25s; text-decoration: none; color: inherit; }
-.pf-item:hover { background: linear-gradient(180deg, rgba(12,18,37,.98), rgba(8,13,26,.98)); border-color: var(--color-border-accent); transform: translateY(-3px); }
-.pf-thumb { width: 100%; margin: 0 0 var(--space-2) 0; }
-.pf-thumb img { width: 100%; aspect-ratio: 16 / 9; display: block; object-fit: cover; border-radius: var(--radius-md); }
-.pf-content { display: flex; flex-direction: column; gap: 12px; flex-grow: 1; }
-.pf-content .label { margin-bottom: 0; }
-.pf-num { font-family: var(--font-display); font-style: italic; font-size: 28px; font-weight: 300; color: var(--color-text-ghost); line-height: 1; margin-bottom: 0; }
-.pf-cta { margin-top: auto; padding-top: var(--space-3); display: flex; }
-.pf-button { display: flex; padding: 8px 16px; justify-content: center; align-items: center; gap: 8px; border-radius: 24px; background: #EAE1CD; font-family: var(--font-body); font-size: 16px; font-weight: 500; line-height: 1; color: #0B0F1A; transition: background 0.25s ease; }
-.pf-item:hover .pf-button { background: rgba(234,225,205,.5); }
+.pf-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  align-items: stretch;
+}
+
+.pf-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  background: linear-gradient(180deg, var(--color-bg-surface), var(--color-bg-elevated));
+  transition: transform .25s, border-color .25s, background .25s;
+  color: inherit;
+}
+
+.pf-item:hover {
+  background: linear-gradient(180deg, rgba(12,18,37,.98), rgba(8,13,26,.98));
+  border-color: var(--color-border-accent);
+  transform: translateY(-3px);
+}
+
+.pf-thumb {
+  width: 100%;
+  margin: 0 0 var(--space-2) 0;
+}
+
+.pf-thumb img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.pf-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.pf-content .label {
+  margin-bottom: 0;
+}
+
+.pf-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--color-text-ghost);
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.pf-content .heading-md {
+  margin: 0;
+}
+
+.pf-content .body-sm {
+  margin: 0;
+}
+
+.pf-cta {
+  margin-top: auto;
+  padding-top: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pf-button {
+  display: inline-flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 24px;
+  background: #EAE1CD;
+  border: 1px solid #EAE1CD;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  color: #0B0F1A;
+  text-decoration: none;
+  transition: background .25s ease, border-color .25s ease, color .25s ease;
+}
+
+.pf-button:hover {
+  background: rgba(234,225,205,.5);
+  border-color: rgba(234,225,205,.5);
+}
+
+.pf-button-secondary {
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid rgba(234,225,205,.28);
+}
+
+.pf-button-secondary:hover {
+  background: rgba(234,225,205,.08);
+  border-color: rgba(234,225,205,.5);
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 991px) {
+  .pf-list {
+    grid-template-columns: 1fr;
+  }
+}
 
 .ref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid var(--color-border); }
 .ref-item { padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg); }
@@ -1090,6 +1194,7 @@ footer a:hover { color: var(--color-accent); }
 </section>
 
 
+
 <!-- SECTION: PORTFOLIO -->
 <section id="portfolio" class="section section-alt">
   <div class="container">
@@ -1103,62 +1208,91 @@ footer a:hover { color: var(--color-accent); }
 
     <div class="pf-list">
 
-      <a class="pf-item" href="https://pptaglobal.org" target="_blank" rel="noopener noreferrer">
+      <!-- PPTA -->
+      <article class="pf-item">
         <div class="pf-thumb">
           <img src="https://drive.google.com/thumbnail?id=1WuIiC_6wIAmTlet4ovzQujKNfqREC1eU&sz=w1600" alt="PPTA Global preview">
         </div>
+
         <div class="pf-content">
           <div class="pf-num">01</div>
           <div class="heading-md">PPTA Global</div>
           <div class="label">Webflow Implementation</div>
-<p class="body-sm">
-  Website for a global industry association representing plasma collection centers and manufacturers.
-</p>
 
-<p class="body-sm">
-  The challenge was organizing a large volume of technical content across many pages, making it clear and navigable for multiple audiences, while building a CMS a non-technical team could manage.
-</p>
+          <p class="body-sm">
+            Website for a global industry association representing plasma collection centers and manufacturers.
+          </p>
 
-<a href="https://contra.com/p/k7QrseFM-ppta-plasma-protein-therapeutics-association-or-web-development" target="_blank" class="link-underline">
-  More on the implementation
-</a>       </div>
-        <div class="pf-cta">
-          <div class="pf-button">Check live website</div>
+          <p class="body-sm">
+            The challenge was organizing a large volume of technical content across many pages, making it clear and navigable for multiple audiences, while building a CMS a non-technical team could manage.
+          </p>
         </div>
-      </a>
 
-      <a class="pf-item" href="https://www.itsyourculture.com" target="_blank" rel="noopener noreferrer">
+        <div class="pf-cta">
+          <a href="https://pptaglobal.org" target="_blank" rel="noopener noreferrer" class="pf-button">
+            Check live website
+          </a>
+
+          <a href="https://contra.com/p/k7QrseFM-ppta-plasma-protein-therapeutics-association-or-web-development" target="_blank" rel="noopener noreferrer" class="pf-button pf-button-secondary">
+            More about process
+          </a>
+        </div>
+      </article>
+
+      <!-- IT'S YOUR CULTURE -->
+      <article class="pf-item">
         <div class="pf-thumb">
           <img src="https://drive.google.com/thumbnail?id=14wy8XtoEmXKIQcwjZOminatc0eaWx9tG&sz=w1600" alt="It's Your Culture preview">
         </div>
+
         <div class="pf-content">
           <div class="pf-num">02</div>
           <div class="heading-md">It's Your Culture</div>
           <div class="label">UX/UI Design</div>
-          <p class="body-sm">Brand-forward design for a cultural identity platform. The brief was to make identity feel personal without being prescriptive, which is a UX problem as much as a visual one. Full design system delivered in Figma.</p>
-        </div>
-        <div class="pf-cta">
-          <div class="pf-button">Check live website</div>
-        </div>
-      </a>
 
-      <a class="pf-item" href="https://the-comuni-life.webflow.io" target="_blank" rel="noopener noreferrer">
+          <p class="body-sm">
+            Brand-forward design for a cultural identity platform. The brief was to make identity feel personal without being prescriptive, which is a UX problem as much as a visual one. Full design system delivered in Figma.
+          </p>
+        </div>
+
+        <div class="pf-cta">
+          <a href="https://www.itsyourculture.com" target="_blank" rel="noopener noreferrer" class="pf-button">
+            Check live website
+          </a>
+        </div>
+      </article>
+
+      <!-- COMUNI -->
+      <article class="pf-item">
         <div class="pf-thumb">
           <img src="https://drive.google.com/thumbnail?id=1GQWQXc8lD5wSaxEjCWdDSRB-4PhMmTbm&sz=w1600" alt="The Comuni Life preview">
         </div>
+
         <div class="pf-content">
           <div class="pf-num">03</div>
           <div class="heading-md">The Comuni Life</div>
           <div class="label">UX/UI Design + Webflow</div>
-          <p class="body-sm">Full design and Webflow implementation for a lifestyle community brand. This is the closest analog to what Pixis needs: a premium aesthetic, a CMS the client can actually operate, and a design that does not look like it came from a template library.</p>
+
+          <p class="body-sm">
+            Full design and Webflow implementation for a lifestyle community brand. This is the closest analog to what Pixis needs: a premium aesthetic, a CMS the client can actually operate, and a design that does not look like it came from a template library.
+          </p>
         </div>
+
         <div class="pf-cta">
-          <div class="pf-button">Check live website</div>
+          <a href="https://the-comuni-life.webflow.io" target="_blank" rel="noopener noreferrer" class="pf-button">
+            Check live website
+          </a>
+
+          <a href="https://contra.com/p/QLeOReQX-comuni-or-uxui-design-and-webflow-implementation?referralExperimentNid=DEFAULT_REFERRAL_PROGRAM&referrerUsername=carol_loiola_q8jvry5o" target="_blank" rel="noopener noreferrer" class="pf-button pf-button-secondary">
+            More about process
+          </a>
         </div>
-      </a>
+      </article>
 
     </div>
 
+  </div>
+  
     <div class="ref-grid">
       <div class="ref-item">
         <div class="label">Reference 01</div>
